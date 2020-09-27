@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block body %}
+    <h1>Matching results</h1>
+
+    <ul>
+        {% for entry in matches %}
+            <li><a href="{% url 'show_page' entry %}">{{ entry|safe }}</a></li>
+        {% empty %}
+        	<li>OOPS! No Matching results....</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
